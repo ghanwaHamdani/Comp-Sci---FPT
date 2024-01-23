@@ -1,0 +1,49 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Hafeeza Ali
+ * Mini Game 2
+ * Spot the 5 Differences (Click on them)
+ */
+
+public class puzzle2 extends World
+{
+  public static int score;
+    
+    public puzzle2()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        score = 0;
+        showText ("Find 5 Differences", 100, 10);
+        showText ("Score:"+ score, 510, 360);
+        prepare();
+    }
+    
+    public void act (){
+        showText ("Score:"+ puzzle2.score, 510, 360);
+        if (score == 5){
+            showText ("You win!", 300, 200);
+            Greenfoot.setWorld(new RandomlyGeneratingDungeon());
+        }
+    }
+
+    private void prepare()
+    {
+        Flower flower = new Flower();
+        addObject(flower,582,231);
+        Footprint footprint = new Footprint();
+        addObject(footprint,444,327);
+        ButtonKey buttonkey = new ButtonKey();
+        addObject(buttonkey,95,201);
+        buttonkey.setLocation(57,220);
+        SeeingStone seeingStone = new SeeingStone();
+        addObject(seeingStone,46,39);
+        Spider spider = new Spider();
+        addObject(spider,24,302);
+        seeingStone.setLocation(62,58);
+        buttonkey.setLocation(315,219);
+        buttonkey.setLocation(329,232);
+        seeingStone.setLocation(58,55);
+    }
+}
