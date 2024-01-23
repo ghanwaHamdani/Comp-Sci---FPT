@@ -1,0 +1,14 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Don't get too close, or you'll get a rash!
+ * 
+ * Eliza Rehan
+ * 1/18/2024
+ */
+
+public class PoisonOak extends Actor{
+    public void act() {
+        // Add your action code here.
+    }
+}
