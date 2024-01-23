@@ -1,0 +1,38 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Title, Lose, Win, etc.
+ * 
+ * Ghanwa Hamdani
+ * Jan 21, 2024
+ */
+public class GameState extends World
+{
+
+    static int gameState = 0; //0: title, 1: game, 2: piano, 3: lose, 4: win
+    
+    public GameState()
+    {    
+        super(600, 400, 1); 
+        determineState();
+    }
+    
+    public static void determineState(){
+        if(gameState == 0){
+            Title t = new Title();
+            Greenfoot.setWorld(t);
+        }
+        if(gameState == 1){
+            RandomlyGeneratingDungeon r = new RandomlyGeneratingDungeon();
+            Greenfoot.setWorld(r);
+        }
+        if(gameState == 2){
+            Piano p = new Piano();
+            Greenfoot.setWorld(p);
+        }
+        if(gameState == 3){
+            Lose l = new Lose();
+            Greenfoot.setWorld(l);
+        }
+    }
+}
