@@ -1,0 +1,13 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+public class Apple extends Actor
+{
+    /**
+     * Hafeeza Ali
+     * Get Eaten by Ladybug in first puzzle
+     */
+    public void act()
+    {
+        // Add your action code here.
+    }
+}
