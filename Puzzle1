@@ -1,0 +1,55 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Hafeeza Ali
+ * Mini Game 1
+ * Eat All The Apples And Avoid Poison Bugs
+ */
+public class Puzzle1 extends World
+{
+
+   
+    public Puzzle1()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        showText("Collect the apples while avoiding the deadly bugs",300,10);
+        showText("Use arrow keys to move.",200,370);
+        prepare();
+    }
+    
+   
+    private void prepare()
+    {
+        LadyBug ladyBug = new LadyBug();
+        addObject(ladyBug,38,204);
+        Apple apple = new Apple();
+        addObject(apple,134,57);
+        Apple apple2 = new Apple();
+        addObject(apple2,123,314);
+        Apple apple3 = new Apple();
+        addObject(apple3,288,173);
+        Apple apple4 = new Apple();
+        addObject(apple4,334,315);
+        Apple apple5 = new Apple();
+        addObject(apple5,136,142);
+        Apple apple6 = new Apple();
+        addObject(apple6,224,349);
+        Apple apple7 = new Apple();
+        addObject(apple7,384,81);
+        Apple apple8 = new Apple();
+        addObject(apple8,511,325);
+        Apple apple9 = new Apple();
+        addObject(apple9,438,208);
+        Apple apple10 = new Apple();
+        addObject(apple10,517,87);
+        Apple apple11 = new Apple();
+        addObject(apple11,250,69);
+        Apple apple12 = new Apple();
+        addObject(apple12,199,231);
+        PoisonBug poisonBug = new PoisonBug();
+        addObject(poisonBug,420,343);
+        PoisonBug poisonBug2 = new PoisonBug();
+        addObject(poisonBug2,436,100);
+    }
+}
