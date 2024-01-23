@@ -1,7 +1,8 @@
 import greenfoot.*;
 import java.util.List;
 
-public class RandomlyGeneratingDungeon extends World {       
+public class RandomlyGeneratingDungeon extends World {    
+     public static int lives;
      static int currentRoom = 1;
      static int previousRoom = 1;
      
@@ -9,6 +10,7 @@ public class RandomlyGeneratingDungeon extends World {
     public RandomlyGeneratingDungeon() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(680, 480, 1, false); 
+        lives = 10;
         addObject (new Hearts (), 30, 30);
         addObject(new Link(),getWidth()/2,getHeight()/2+20);
         addObject(new FadeOverlay(),getWidth()/2,getHeight()/2);
@@ -120,7 +122,7 @@ public class RandomlyGeneratingDungeon extends World {
         if (tileSet==2)setBackground(new GreenfootImage("AquaTile.png"));
         if (tileSet==3)setBackground(new GreenfootImage("YellowTile.png"));
         if (tileSet==4)setBackground(new GreenfootImage("GreyTile.png"));
-        if (Hearts.lives <= 0){
+        if (RandomlyGeneratingDungeon.lives <= 0){
             addObject(new Skull (), 350, 300);
         }
         
