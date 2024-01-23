@@ -1,0 +1,17 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Creepy doll.
+ * ...Why does it look exactly like Coraline?
+ * 
+ * Eliza Rehan 
+ * 1/21/2024
+ */
+
+public class Doll extends Actor{
+
+    public void act() {
+        Link link = (Link)getWorld().getObjects(Link.class).get(0);
+        turnTowards(link.getX(), link.getY());
+    }
+}
