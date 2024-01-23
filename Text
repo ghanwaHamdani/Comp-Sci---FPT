@@ -1,0 +1,28 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Text here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Text extends Actor
+{
+    /**
+     * Act - do whatever the Text wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+      /* if(RandomlyGeneratingDungeon.gameState == 0){
+            title();
+       }*/
+    }
+    
+    public void title(){
+       GreenfootImage title = new GreenfootImage(200,200);
+       title.setFont(new Font("Times New Roman",40));
+       title.drawString("CORALINE",300,300);
+       setImage(title);
+    }
+}
