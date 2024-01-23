@@ -1,0 +1,205 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Room layout.
+ * 
+ * Eliza Rehan
+ * 1/21/2024
+ */
+
+public class Rooms extends Actor {
+        
+    public void act() {
+    }
+
+    static String[][] roomTitle = {
+        {"Locked Room","Front Lawn","Off Property"},
+        {"Room","Hallway","Ghost Children"},
+        {"Kitchen","Dining Room","Stairs"},
+        {"Garden","Father's Study","Coraline's Room"},
+        {"","","Boss"}
+};
+
+    /* o - nothing
+     * W - wall
+     * l - lava
+     * w - water
+     * d - door
+     * b - block
+     * p - poison oak
+     * k - key
+     * D - doll
+     * 
+     * O - wishing well
+     */
+    
+    
+    static String lockedRoom = "WWWWWWWdddWWWWWWW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WWWWWWWWWWWWWWWWW";
+
+    static String frontLawn = "WWWWWWWdddWWWWWWW" + //add blocks
+        "Woooooooooooowwoo" +
+        "Wooooooooooowokwo" +
+        "Woooboooooooowwoo" +
+        "Woooooooooooooooo" +
+        "Woooobooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooboooooooobbbb" +
+        "Wllloooooooooooob" +
+        "Wlkloooooooooooob" +
+        "Wllloooooooooooob" +
+        "WWWWWWWWWWWWWWWWW";
+
+    static String offProperty = "WWWWWWWWWWWWWWWWW" +
+        "ooooooooooooooooW" + //add wishing well and stuff
+        "oooooooooooooopoW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "oooooooOOOooooooW" +
+        "oooooooOwOooooooW" +
+        "oooooooOOOooooooW" +
+        "ooooooooooopooooW" +
+        "oopoooooooooooooW" +
+        "ooooooooooooooooW" +
+        "WWWWWWWWWWWWWWWWW";
+
+    static String room = "WWWWWWWWWWWWWWWWW" +
+        "Woooooooooooooooo" +
+        "Woobboooooooooooo" +
+        "Woobooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "WWWWWWWdddWWWWWWW";
+
+    static String hall = "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "WWWWWWWoooWWWWWWW";
+
+    static String ghostRoom = "WWWWWWWdddWWWWWWW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WWWWWWWWWWWWWWWWW";
+
+    static String kitchen = "WWWWWWWWWWWWWWWWW" +
+        "Woooooooooooooooo" +
+        "Wowwooooooooooooo" +
+        "Wowwooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "WWWWWWWWWWWWWWWWW";
+
+    static String diningRoom = "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo" +
+        "ooooooooooooooooo";
+
+    static String stairs = "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "ooooooooooooooooW" +
+        "WWWWWWWdddWWWWWWW";
+
+    static String garden = "WWWWWWWWWWWWWWWWW" +
+        "WoooooooooooooooW" +
+        "WooooooopoooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "Woooooooooooooooo" +
+        "Woooooooooooooooo" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoopooooooooooowW" +
+        "WooooooooooooowwW" +
+        "WWWWWWWWWWWWWWWWW";
+
+    static String study = "WWWWWWWWWWWWWWWWW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WpooooooooooooooW" +
+        "doooooooooooooooW" +
+        "doooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW";
+
+    static String CoralinesRoom = "WWWWWWWdddWWWWWWW" +
+        "WbboooooooooooooW" +
+        "WbboooooooooooDoW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WooooooooooooobbW" +
+        "WoooooooooooooobW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW";
+
+    static String boss = "WWWWWWWWWWWWWWWWW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WoooooooooooooooW" +
+        "WWWWWWWdddWWWWWWW";
+}
