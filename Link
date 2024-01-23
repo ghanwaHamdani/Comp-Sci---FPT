@@ -1,0 +1,207 @@
+import greenfoot.*;
+
+public class Link extends Actor
+{
+    int xMove=0;
+    int xMove2=0;
+    int yMove=0;
+    int yMove2=0;
+    int scroll=0;
+    int scrollTimer=0;
+    static int[] currentRoom = new int[] {1, 4, 7, 10, 13};
+    
+    public void act() 
+    {
+        //Methods
+        try{
+            ((FadeOverlay)getWorld().getObjects(FadeOverlay.class).get(0)).setLocation(getX(),getY());
+        }catch(IndexOutOfBoundsException e){}
+        if (scroll==0){
+            basicMoving();
+            //graphics();
+            collisionDetection();
+            if (getX()>=getWorld().getWidth()-1){
+                scroll=1;
+            }
+            if (getX()<=0){
+                scroll=2;
+            }
+            if (getY()>=getWorld().getHeight()-1){
+                scroll=3;
+            }
+            if (getY()<=0){
+                scroll=4;
+            }
+        }
+        if (scroll==0){
+            setLocation(getX()+xMove+xMove2,getY()+yMove+yMove2);
+        } else {
+            scroll();
+        }
+        
+        determineRoom();
+    }
+    public void scroll(){
+      if (scrollTimer==0){
+            ((FadeOverlay)getWorld().getObjects(FadeOverlay.class).get(0)).fadeOut();
+        }
+        scrollTimer++;
+        if(scrollTimer==30){
+            if (scroll==1){
+                xMove=-9; yMove=0; ((RandomlyGeneratingDungeon)getWorld()).scroll("right");
+           
+                currentRoom[0]++;
+            }
+            if (scroll==2){
+                xMove=9; yMove=0; ((RandomlyGeneratingDungeon)getWorld()).scroll("left");
+                currentRoom[0]--;
+            }
+            if (scroll==3){
+                xMove=0; yMove=-9; ((RandomlyGeneratingDungeon)getWorld()).scroll("down");
+                currentRoom[1]--;
+            }
+            if (scroll==4){
+                xMove=0; yMove=9; ((RandomlyGeneratingDungeon)getWorld()).scroll("up");
+                currentRoom[1]++;
+            }
+        }else if(scrollTimer>30){
+            setLocation(getX()+xMove,getY()+yMove);
+            if (scroll==1&&getX()<=30){
+                scroll=0;
+            }
+            if (scroll==2&&getX()>=getWorld().getWidth()-30){
+                scroll=0;
+            }
+            if (scroll==3&&getY()<=30){
+                scroll=0;
+            }
+            if (scroll==4&&getY()>=getWorld().getHeight()-30){
+                scroll=0;
+            }
+            if (scroll==0){
+                scrollTimer=0;
+                ((FadeOverlay)getWorld().getObjects(FadeOverlay.class).get(0)).fadeIn();
+            }
+        }
+    }
+    public void basicMoving()
+    {
+        if (scroll!=0)return;
+        int m=5; //Rate of cells that will be traveled
+        //Change movement
+        if (Greenfoot.isKeyDown("a")&&yMove==0){
+            xMove=-m; 
+            setRotation(270);
+        }
+        if (Greenfoot.isKeyDown("d")&&yMove==0){
+            xMove=m; 
+            setRotation(90);
+        }
+        if (Greenfoot.isKeyDown("w")&&xMove==0){
+            yMove=-m;
+            setRotation(0);
+        }
+        if (Greenfoot.isKeyDown("s")&&xMove==0){
+            yMove=m;
+            setRotation(180);
+        }
+        
+        if (! Greenfoot.isKeyDown("a")&&! Greenfoot.isKeyDown("d")){
+            xMove=0;
+        }
+        if (! Greenfoot.isKeyDown("w")&&! Greenfoot.isKeyDown("s")){
+            yMove=0;
+        }
+        if (Greenfoot.isKeyDown("p")){//If user clicks letter key p they can play the piano
+            Greenfoot.setWorld(new Piano());
+        }
+        
+    }
+    static String direction="up";
+    public void graphics()
+    {
+        
+    }
+    //Class[] objects = {Wall.class, Block.class, Lava.class, Water.class, Key.class};//when bumping into these stop character from moving
+    //Class[] danger= {Lava.class};//when touching these dangerous thing lower lives/health
+    Class[] objects = {Wall.class,Block.class};
+    Class [] danger = {Lava.class, Water.class,Door.class};
+    Class[] collectables ={Key.class};//when bumping into These collect and add to inventory maybe
+    int collisionAmount = 0;
+
+    public void collisionDetection()
+    {
+        while (collisionAmount < danger.length){
+          if (isTouching(Lava.class)){
+              Hearts.lives = Hearts.lives - Hearts.lives;
+          }
+          if (isTouching (Water.class)){
+              Hearts.lives = Hearts.lives - 1;
+              setLocation (getWorld().getWidth()/2, getWorld().getHeight()/2);
+          }
+          
+           collisionAmount++;
+        }
+        collisionAmount = 0;
+
+             //while (collisionAmount < objects.length){
+                /*if (isTouching(Key.class)){
+                    getWorld().showText("Tocuhed Key", 80, 80); 
+                    //You guys need to download the sounds
+                    Greenfoot.playSound("collectedSound.mp3");
+                    removeTouching(Key.class);
+                    //break;
+                }*/
+                
+                
+                
+            while (collisionAmount < objects.length){
+             //Down check
+            for (int i=-getImage().getWidth()/2+2; i<getImage().getWidth()/2-2; i+=4){
+                Actor object = getOneObjectAtOffset(i, getImage().getHeight()/2+2,objects[collisionAmount]);
+                if (object!=null&&yMove>0){
+                    i=-getImage().getWidth()/2+2; 
+                    yMove=0; 
+                    setLocation(getX(),object.getY()-object.getImage().getHeight()/2-getImage().getHeight()/2);
+                }
+            }
+            
+            //Up check
+            for (int i=-getImage().getWidth()/2+2; i<getImage().getWidth()/2-2; i+=4){
+                Actor object = getOneObjectAtOffset(i, -getImage().getHeight()/2-3,objects[collisionAmount]);
+                if (object!=null&&yMove<0){
+                    i=-getImage().getWidth()/2+2;
+                    yMove=0;
+                    setLocation(getX(),object.getY()+object.getImage().getHeight()/2+getImage().getHeight()/2);
+                }
+            }
+            //Left check
+            for (int i=-getImage().getHeight()/2+2; i<getImage().getHeight()/2-2; i+=4){
+                Actor object = getOneObjectAtOffset(0-getImage().getWidth()/2-3, i,objects[collisionAmount]);
+                if (object!=null&&xMove<0){
+                    i=-getImage().getHeight()/2+2;
+                    xMove=0;
+                    setLocation(object.getX()+object.getImage().getWidth()/2+getImage().getWidth()/2,getY());
+                }
+            }
+            //Right check
+            for (int i=-getImage().getHeight()/2+2; i<getImage().getHeight()/2-2; i+=4){
+                Actor object = getOneObjectAtOffset(getImage().getWidth()/2+2, i,objects[collisionAmount]);
+                if (object!=null&&xMove>0){
+                    i=-getImage().getHeight()/2+2;
+                    xMove=0;
+                    setLocation(object.getX()-object.getImage().getWidth()/2-getImage().getWidth()/2,getY());
+                }
+            }
+            collisionAmount++;
+        }
+            collisionAmount=0;
+    }
+    
+    public void determineRoom(){
+        if(WishingWell.contains(currentRoom, new int[]{1,1,7,10,13})){
+            GameState.gameState = 2;
+            GameState.determineState();
+        }
+    }
+}
