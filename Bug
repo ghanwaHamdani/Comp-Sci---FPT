@@ -1,0 +1,24 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ Hafeeza Ali
+ Puzzle 3 bugs
+ */
+public class Bug extends Actor
+{
+    private int speed = 1;
+    /**
+     * Act - do whatever the Bug wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        setLocation(getX(), getY() + speed);
+        if (intersects (((Bug)getWorld().getObjects(Bug.class).get(0)))){
+            removeTouching(Bug.class);
+        }
+        if (getY () > 390){
+            setLocation (Greenfoot.getRandomNumber(400-220+1)+220, getY () - 300);
+        }
+    }
+}
