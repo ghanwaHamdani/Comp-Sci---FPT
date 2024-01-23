@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 2024/01/16
  */
 public class Hearts extends Actor
-{ public static int lives = 10;
+{ 
     public void act()
     {
-        getWorld().showText(""+lives, 30, 30);
-        if (lives <= 0){
+        getWorld().showText(""+RandomlyGeneratingDungeon.lives, 30, 30);
+        if (RandomlyGeneratingDungeon.lives <= 0){
             getWorld().showText ("YOU DIED", 350, 200);
             FadeOverlay.fadeOut = true;
         }
