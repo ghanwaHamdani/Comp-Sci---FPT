@@ -177,7 +177,7 @@ public class Rooms extends Actor {
         "WoooooooooooooooW" +
         "WoooooooooooooooW";
 
-    static String CoralinesRoom = "WWWWWWWdddWWWWWWW" +
+    static String CoralinesRoom = "WWWWWWWWdWWWWWWWW" +
         "WbboooooooooooooW" +
         "WbboooooooooooDoW" +
         "WoooooooooooooooW" +
