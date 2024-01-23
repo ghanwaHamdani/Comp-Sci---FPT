@@ -34,7 +34,7 @@ public class Rooms extends Actor {
      */
     
     
-    static String lockedRoom = "WWWWWWWdddWWWWWWW" +
+    static String lockedRoom = "WWWWWWWWoWWWWWWWW" +
         "WoooooooooooooooW" +
         "WoooooooooooooooW" +
         "WoooooooooooooooW" +
@@ -47,7 +47,7 @@ public class Rooms extends Actor {
         "WoooooooooooooooW" +
         "WWWWWWWWWWWWWWWWW";
 
-    static String frontLawn = "WWWWWWWdddWWWWWWW" + //add blocks
+    static String frontLawn = "WWWWWWWWdWWWWWWWW" + //add blocks
         "Woooooooooooowwoo" +
         "Wooooooooooowokwo" +
         "Woooboooooooowwoo" +
@@ -84,7 +84,7 @@ public class Rooms extends Actor {
         "Woooooooooooooooo" +
         "Woooooooooooooooo" +
         "Woooooooooooooooo" +
-        "WWWWWWWdddWWWWWWW";
+        "WWWWWWWWdWWWWWWWW";
 
     static String hall = "ooooooooooooooooW" +
         "ooooooooooooooooW" +
@@ -97,9 +97,9 @@ public class Rooms extends Actor {
         "ooooooooooooooooW" +
         "ooooooooooooooooW" +
         "ooooooooooooooooW" +
-        "WWWWWWWoooWWWWWWW";
+        "WWWWWWWWoWWWWWWWW";
 
-    static String ghostRoom = "WWWWWWWdddWWWWWWW" +
+    static String ghostRoom = "WWWWWWWWdWWWWWWWW" +
         "WoooooooooooooooW" +
         "WoooooooooooooooW" +
         "WoooooooooooooooW" +
@@ -149,7 +149,7 @@ public class Rooms extends Actor {
         "ooooooooooooooooW" +
         "ooooooooooooooooW" +
         "ooooooooooooooooW" +
-        "WWWWWWWdddWWWWWWW";
+        "WWWWWWWWdWWWWWWWW";
 
     static String garden = "WWWWWWWWWWWWWWWWW" +
         "WoooooooooooooooW" +
@@ -201,5 +201,5 @@ public class Rooms extends Actor {
         "WoooooooooooooooW" +
         "WoooooooooooooooW" +
         "WoooooooooooooooW" +
-        "WWWWWWWdddWWWWWWW";
+        "WWWWWWWWdWWWWWWWW";
 }
