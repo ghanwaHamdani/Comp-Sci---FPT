@@ -133,10 +133,10 @@ public class Link extends Actor
     {
         while (collisionAmount < danger.length){
           if (isTouching(Lava.class)){
-              Hearts.lives = Hearts.lives - Hearts.lives;
+              RandomlyGeneratingDungeon.lives = RandomlyGeneratingDungeon.lives - RandomlyGeneratingDungeon.lives;
           }
           if (isTouching (Water.class)){
-              Hearts.lives = Hearts.lives - 1;
+              RandomlyGeneratingDungeon.lives = RandomlyGeneratingDungeon.lives - 1;
               setLocation (getWorld().getWidth()/2, getWorld().getHeight()/2);
           }
           
