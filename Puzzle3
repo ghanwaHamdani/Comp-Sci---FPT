@@ -1,0 +1,39 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Hafeeza Ali
+ * Puzzle 3
+ */
+public class Puzzle3 extends World
+{
+
+    /**
+     * Constructor for objects of class MyWorld.
+     * 
+     */
+    public Puzzle3()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        prepare();
+        showText ("Reach the end of the path, avoid bugs using arrow keys", 300, 390);
+    }
+    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+
+        Bug bug = new Bug();
+        addObject(bug,248,276);
+        Bug bug2 = new Bug();
+        addObject(bug2,301,320);
+        Person person = new Person();
+        addObject(person,244,342);
+        person.setLocation(319,395);
+        bug2.setLocation(323,154);
+        bug.setLocation(267,306);
+    }
+}
