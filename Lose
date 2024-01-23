@@ -1,0 +1,22 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * The Lose Screen
+ * 
+ * Ghanwa Hamdani
+ * Jan 21, 2023
+ */
+public class Lose extends World
+{
+
+    /**
+     * Constructor for objects of class Lose.
+     * 
+     */
+    public Lose()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        showText("The other mother got your eyes :(",300,300);
+    }
+}
