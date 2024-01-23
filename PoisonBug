@@ -1,0 +1,29 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Hafeeza Ali
+ * Eats the lady bug in first puzzle ends game
+ */
+public class PoisonBug extends Actor
+{
+    /**
+     * Act - do whatever the PoisonBug wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        move (1);
+        if (Greenfoot.getRandomNumber (300) < 10){
+            turn (Greenfoot.getRandomNumber (15)-30);
+        }
+        eatBug();
+    }
+    
+    public void eatBug(){
+    if (isTouching(LadyBug.class)){
+        removeTouching(LadyBug.class);
+        getWorld().showText ("Game Over", 300, 200);
+         Greenfoot.setWorld(new Puzzle1());
+    }
+    }
+}
