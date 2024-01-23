@@ -16,24 +16,24 @@ public class RandomlyGeneratingDungeon extends World {
         addObject(new FadeOverlay(),getWidth()/2,getHeight()/2);
         addObject(new Rooms(),getWidth()/2,getHeight()/2);
         
-        drawRoom(Rooms.lockedRoom, 0, 4, true);
-        drawRoom(Rooms.frontLawn, 1, 4, true);
-        drawRoom(Rooms.offProperty, 2, 4, false);
-        drawRoom(Rooms.room, 0, 3, false);
-        drawRoom(Rooms.hall, 1, 3, false);
-        drawRoom(Rooms.ghostRoom, 2, 3, true);
-        drawRoom(Rooms.kitchen, 0, 2, false);
-        drawRoom(Rooms.diningRoom, 1, 2, false);
-        drawRoom(Rooms.stairs, 2, 2, true);
-        drawRoom(Rooms.garden, 0, 1, true);
-        drawRoom(Rooms.study, 1, 1, true);
-        drawRoom(Rooms.CoralinesRoom, 2, 1, true);
-        drawRoom(Rooms.boss, 2, 0, true);
+        drawRoom(Rooms.lockedRoom, 0, 4);
+        drawRoom(Rooms.frontLawn, 1, 4);
+        drawRoom(Rooms.offProperty, 2, 4);
+        drawRoom(Rooms.room, 0, 3);
+        drawRoom(Rooms.hall, 1, 3);
+        drawRoom(Rooms.ghostRoom, 2, 3);
+        drawRoom(Rooms.kitchen, 0, 2);
+        drawRoom(Rooms.diningRoom, 1, 2);
+        drawRoom(Rooms.stairs, 2, 2);
+        drawRoom(Rooms.garden, 0, 1);
+        drawRoom(Rooms.study, 1, 1);
+        drawRoom(Rooms.CoralinesRoom, 2, 1);
+        drawRoom(Rooms.boss, 2, 0);
         placeBlocks();
         paintOrder();
 }
 
-    public void drawRoom(String room, int x, int y, boolean locked) {      
+    public void drawRoom(String room, int x, int y) {      
         x=x-1;
         y=y-4;
         for (int i =0; i < (17*12); i++){
@@ -53,7 +53,7 @@ public class RandomlyGeneratingDungeon extends World {
             } else if (room.charAt(i) == 'D'){
                 addObject(new Doll(), xPos, yPos);
             } else if(room.charAt(i) == 'O'){
-                //addObject(new WishingWell(),xPos,yPos);
+                addObject(new WishingWell(),xPos,yPos);
             } else if(room.charAt(i) == 'b'){
                 addObject(new Block(false,0,-1),xPos,yPos);
             } else if(room.charAt(i) == 'd'){
