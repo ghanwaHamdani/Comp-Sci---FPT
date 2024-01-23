@@ -1,0 +1,61 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Piano here.
+ * This class should be under the world class
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Piano extends World
+{//String arrays that contain the notes each key has and which keyboard key needs to pressed in order to play it
+       private String[] whiteKeys =
+       {"z","x","c","v","b","n","m"};//7 notes in the zxc bottom keyboard row
+       private String[] whiteNotes =
+       {"3c","3d","3e","3f","3g","3a","3b"};
+       private String[] blackKeys =
+       {"F", "G", "", "H", "J", "K", ""};
+       private String[] blackNotes =
+       {"3c#", "3d#", "", "3f#", "3g#", "3a#" };
+    /**
+     * Constructor for objects of class Piano.
+     * 
+     */
+
+    public Piano() 
+    {
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        drawKeys();
+        showPianoInstructions();
+        //drawKeys();
+    }
+    
+    /*
+     * make the piano's keys.
+     */
+    private void drawKeys() 
+    {
+        // draw the white keys
+        for(int i = 0; i < whiteKeys.length; i++) {
+            PianoKey key = new PianoKey(whiteKeys[i], whiteNotes[i]+".wav", "WhiteKey.png", "WhiteKeyDown.png");
+            addObject(key, 120 + (i*62), 130);
+        }
+
+        //draw the black keys
+        for(int i = 0; i < whiteKeys.length-1; i++) {
+            if( ! blackKeys[i].equals("") ) {
+                PianoKey key = new PianoKey(blackKeys[i], blackNotes[i]+".wav", "BlackKey.png", "BlackKeyDown.png");
+                addObject(key, 151 + (i*63), 70);
+            }
+        }
+    }
+    
+    
+    public void showPianoInstructions()
+    {
+        GreenfootImage bg = getBackground();
+        bg.setColor(Color.WHITE);
+        showText ("Use your zxc row keyboard to play notes", getWidth()/2, getHeight()/2 + getHeight()/3);
+    }
+}
